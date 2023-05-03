@@ -8,12 +8,15 @@ def delete_old_files(src_path : str, replica_path : str, log_file_stream) -> Non
     for content in all_content_in_replica:
         repl_path = replica_path + "/" + content
         src_path_content = src_path + "/" + content
+        #we check if the file exists in the replica but it doesn`t exist in the source folder
         if os.path.isfile(repl_path) and not os.path.isfile(src_path_content):
             log_file_stream.write(f"Deleted File: {repl_path} at {datetime.time(datetime.now())}\n")
             print(f"Deleted File: {repl_path} at {datetime.time(datetime.now())}")
             os.remove(repl_path)
         if os.path.isdir(repl_path):
+            # we check recursively the content of the folder
             delete_old_files(src_path_content, repl_path, log_file_stream)
+            #check to see if the folder in the replica exists in the source folder
             if not os.path.isdir(src_path_content):
                 os.rmdir(repl_path)
                 log_file_stream.write(f"Deleted Folder: {repl_path} at {datetime.time(datetime.now())}\n")
@@ -26,20 +29,24 @@ def copy_new_files(src_path : str, replica_path : str, log_file_stream) -> None:
         content_path = src_path + "/" + content
         copy_path = replica_path + "/" + content
         if os.path.isfile(content_path):
+            #check if the file doesn`t exist in the replica file
             if not os.path.isfile(copy_path):
                 copy_file(content_path, copy_path)
                 log_file_stream.write(f"Created and Copied File: {content_path} at {datetime.time(datetime.now())}\n")
                 print(f"Created Copied File: {content_path} at {datetime.time(datetime.now())}")
+            #in case it exists we check if it`s the same file as the original one
             if not check_same_file(content_path, copy_path):
                 copy_file(content_path, copy_path)
                 log_file_stream.write(f"Updated File: {content_path} at {datetime.time(datetime.now())}\n")
                 print(f"Updated File: {content_path} at {datetime.time(datetime.now())}")
 
         elif os.path.isdir(content_path):
+            #check to see if the directory doesn`t exist
             if not os.path.isdir(copy_path):
                 os.mkdir(copy_path)
                 log_file_stream.write(f"Created Folder: {copy_path} at {datetime.time(datetime.now())}\n")
                 print(f"Created Folder: {copy_path} at {datetime.time(datetime.now())}")
+            #if it exists we check recursively the contect of that folder
             copy_new_files(content_path, copy_path, log_file_stream)
 
 #function to delete everything in the replica folder
