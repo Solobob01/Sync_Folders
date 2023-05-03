@@ -12,4 +12,4 @@ First it clears the replica folder and the log file so we can work in a clear en
 Inside the loop it checks for differences between the replica folder and the source folder every p seconds
     First we deleted the files that are in the replica folder but not in the source folder
     After that we check for new files/folders inside the source folder and update them/copy them in the replica folder
-    During the copy of a file, a md5 hashing is used to check that there is not difference between the copied file and the original one
+    During the copy of a file, a md5 hashing is used to check if there is no difference between the copied file and the original one
