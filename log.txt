@@ -1,0 +1,13 @@
+Created Folder: .\replica/folderA at 13:12:36.666451
+Created and Copied File: .\src/folderA/a.docx at 13:12:36.674354
+Created and Copied File: .\src/folderA/a.txt at 13:12:36.675451
+Created Folder: .\replica/folderA/folderAA at 13:12:36.676391
+Created and Copied File: .\src/folderA/folderAA/blue.png at 13:12:36.677456
+Created Folder: .\replica/folderA/folderAA/folderAAA at 13:12:36.677456
+Created and Copied File: .\src/folderA/folderAA/folderAAA/aaa.pptx at 13:12:36.682445
+Created Folder: .\replica/folderB at 13:12:36.683451
+Created and Copied File: .\src/folderB/b.pub at 13:12:36.688459
+Created Folder: .\replica/folderB/folderBA at 13:12:36.689497
+Created and Copied File: .\src/folderB/folderBA/ba.txt at 13:12:36.690475
+Created Folder: .\replica/folderB/folderBB at 13:12:36.691465
+Created and Copied File: .\src/folderB/folderBB/bb.txt at 13:12:36.692462
