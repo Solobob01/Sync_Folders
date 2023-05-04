@@ -40,8 +40,15 @@ def get_arguments():
     
 def main():
     src_path, repl_path, period, log_path = get_arguments()
-    clear_replica(repl_path)
     log_file_stream = open(log_path, "w")
+    if(os.path.exists(repl_path) and not os.path.isdir(repl_path)):
+        raise Exception("The replica is not a folder")
+    if(not os.path.exists(repl_path)):
+        log_file_stream.write(f"Created replica folder: {repl_path} at {datetime.time(datetime.now())}\n")
+        print(f"Created replica folder: {repl_path} at {datetime.time(datetime.now())}")
+        os.mkdir(repl_path)
+    clear_replica(repl_path)
+    
     start_time = time.time()
     update_replica(src_path, repl_path, log_file_stream)
     log_file_stream.close()
