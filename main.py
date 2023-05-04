@@ -7,28 +7,28 @@ import time
 def get_arguments():
     CLI=argparse.ArgumentParser()
     CLI.add_argument(
-      "--src",  # name on the CLI - drop the `--` for positional/required parameters
+      "-src",  # name on the CLI - drop the `--` for positional/required parameters
       nargs=1,  # 0 or more values expected => creates a list
       type=str,
       default="",
       help="Source Folder Path", # default if nothing is provided
     )
     CLI.add_argument(
-      "--repl",
+      "-repl",
       nargs=1,
       type=str,  # any type/callable can be used here
       default="",
       help="Replica folder path",
     )
     CLI.add_argument(
-      "--p",
+      "-p",
       nargs=1,
       type=float,  # any type/callable can be used here
       default=-1.0,
       help="Loop period (in seconds)",
     )
     CLI.add_argument(
-      "--log",
+      "-log",
       nargs=1,
       type=str,  # any type/callable can be used here
       default="",
